@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Information Customer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="TrangChu.html">
+</head>
+<body>
+<div class="panel panel-primary">
+    <div class="panel-heading">THÔNG TIN NGƯỜI DÙNG</div>
+    <div class="panel-body">
+        <table class="table table-primary">
+            <thead>
+            <tr>
+                <th>Số Thứ Tự</th>
+                <th>Họ Tên</th>
+                <th>Chứng Minh Nhân Dân</th>
+                <th>Năm Sinh</th>
+                <th>Email</th>
+                <th>Địa Chỉ</th>
+                <th>Customer</th>
+                <th>Giảm Giá</th>
+                <th>Số Lượng Đi Kèm</th>
+                <th>Số Ngày Thuê</th>
+                <th>Loại Dịch Vụ</th>
+                <th>Loại Phòng</th>
+            </tr>
+            </thead>
+            <tbody id="datalist"></tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    var count = 0;
+    function add() {
+        count++;
+        var fullName = document.getElementById('fullname').value;
+        var cmnd = document.getElementById('cmnd_id').value;
+        var datalistTag = document.getElementById('datalist');
+        datalistTag.innerHTML += "<tr>"+"<td>"+fullName+"</td>"+"<td>"+cmnd+"</td>"+"</tr>";
+
+    }
+
+</script>
+</body>
+</html>
