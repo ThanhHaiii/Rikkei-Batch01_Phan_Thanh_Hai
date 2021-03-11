@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+</head>
+<body>
+<div class="panel panel-primary">
+    <form action="#" th:action="@{/custom/save}" th:object="${kh}" method="post" novalidate="novalidate">
+        <input type="hidden" th:field="*{getMaKH()}">
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{getTenKH()}">
+        </div>
+        <div>
+            <label>Date-Of-Birth</label>
+            <input type="text" th:field="*{getNgSinh()}">
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="text" th:field="*{getEmail()}">
+        </div>
+        <div>
+            <label>Phone</label>
+            <input type="text" th:field="*{getSDT()}">
+        </div>
+        <button class="button btn-primary">Save</button>
+
+    </form>
+</div>
+</body>
+</html>

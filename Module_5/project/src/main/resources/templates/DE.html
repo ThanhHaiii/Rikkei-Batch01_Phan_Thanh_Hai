@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>THE RESORT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+</head>
+<body onload="init()">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        NHẬP THÔNG TIN NGƯỜI DÙNG
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label>HỌ TÊN NGƯỜI DÙNG</label>
+            <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Nhập tên người dùng">
+        </div>
+        <div class="form-group">
+            <label>CHỨNG MINH NHÂN DÂN</label>
+            <input type="text" name="cmnd" id="cmnd_id" class="form-control" placeholder="Nhập chứng minh nhân dân">
+        </div>
+        <div class="form-group">
+            <label>NGÀY THÁNG NĂM SINH</label>
+            <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                <input class="form-control" readonly="" type="text" name="date">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>EMAIL</label>
+            <input type="email" name="email" id="mail_id" class="form-control" placeholder="Nhập email">
+        </div>
+        <div class="form-group">
+            <label>ĐỊA CHỈ</label>
+            <input type="text" name="diachi" id="diachi_id" class="form-control" placeholder="Nhập địa chỉ">
+        </div>
+        <div class="form-group">
+            <form action="#">
+                <label>CUSTOMER</label><br>
+                <select id="customer_id" name="customer">
+                    <option>Member</option>
+                    <option>Silver</option>
+                    <option>Gold</option>
+                    <option>Platinum</option>
+                    <option>Diamond</option>
+                </select>
+            </form>
+        </div>
+        <div class="form-group">
+            <label>GIẢM GIÁ</label>
+            <input type="text" name="giamgia" id="gGia_id" class="form-control" placeholder="Nhập mã giảm giá">
+        </div>
+        <div class="form-group">
+            <label>SỐ LƯỢNG ĐI KÈM</label>
+            <input type="text" name="sldikem" id="sL_id" class="form-control" placeholder="Nhập số lượng đi kèm">
+        </div>
+        <div class="form-group">
+            <label>SỐ NGÀY THUÊ</label>
+            <input type="text" name="snthue" id="sN_id" class="form-control" placeholder="Nhập số ngày thuê">
+        </div>
+        <div class="form-group">
+            <form action="#">
+                <label>LOẠI DỊCH VỤ</label><br>
+                <select id="service_id" name="serVice">
+                    <option>Room</option>
+                    <option>House</option>
+                    <option>Villa</option>
+                </select>
+            </form>
+        </div>
+        <div class="form-group">
+            <form action="#">
+                <label>LOẠI PHÒNG THUÊ</label><br>
+                <select id="room_id" name="room">
+                    <option>Normal</option>
+                    <option>Business</option>
+                    <option>Vip</option>
+                </select>
+            </form>
+        </div>
+        <button id="btn_register" class="btn btn-success" onclick="add()">ĐĂNG KÝ</button>
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    function init() {
+        alert("THÔNG TIN NGƯỜI DÙNG")
+
+    }
+</script>
+<div class="panel panel-primary">
+    <div class="panel-heading">THÔNG TIN NGƯỜI DÙNG</div>
+    <div class="panel-body">
+        <table class="table table-primary">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>DateOfBirth</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+            </thead>
+            <tbody id="datalist">
+            <tr>
+                <td id="cost"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    var count = 0;
+    var cost;
+    var datalist = [];
+    function add() {
+        count++;
+        var fullName = document.getElementById('fullname').value;
+        var cmnd = document.getElementById('cmnd_id').value;
+        var dc1 = document.getElementById('diachi_id').value;
+        var mail = document.getElementById('mail_id').value;
+        var cus = document.getElementById('customer_id').value;
+        var giaGia = document.getElementById('gGia_id').value;
+        var servic = document.getElementById('service_id').value;
+        var room = document.getElementById('room_id').value;
+        var nSinh = document.getElementById('datepicker').value;
+        var sL = document.getElementById('sL_id').value;
+        var nT = document.getElementById('sN_id').value;
+        var customer = {
+            "fullname": fullName,
+            "cmnd": cmnd,
+            "email":mail,
+            "custom":cus,
+            "diachi":dc1,
+            "giamgia":giaGia,
+            "serVice":servic,
+            "room":room,
+            "date":nSinh,
+            "sldikem":sL,
+            "snthue":nT
+        }
+        if(currIndex==-1){
+            addTag(customer);
+        }else {
+            datalist[currIndex] = customer;
+            currIndex=-1;
+            document.getElementById('btn_register').innerHTML="Đăng Ký"
+            displayAll();
+
+        }
+        function displayAll(){
+            var datalistTag = document.getElementById('datalist');
+            datalistTag.innerHTML = "";
+            for (i=0;i<datalist.length;i++)
+            {
+                var customer = datalist[i];
+                datalistTag.innerHTML += "<tr>"+"<td>"+(i+1)+"</td>"+"<td>"+customer.fullname+"</td>"+"<td>"+customer.cmnd+"</td>"+"<td>"+customer.date+"</td>"+"<td>"+customer.email+"</td>"
+                    + "<td>"+customer.diachi+"</td>"+"<td>"+customer.custom+"</td>"+"<td>"+customer.giamgia+"</td>"+"<td>"+customer.sldikem+"</td>"+"<td>"+customer.snthue+"</td>"+"<td>"+customer.serVice+"</td>"+"<td>"+customer.room+"</td>"+"<td>"+cost+"</td>"+"<td><button class='btn btn-warning' onclick='edit("+i+")'>Sửa</button></td>"+"<td><button class='btn btn-danger'>Xóa</button></td>"+"</tr>";
+            }
+        }
+
+        datalist.push(customer);
+
+
+        // document.getElementById('cost').innerText=cost_sell();
+        try {
+            if (nT<0)
+                return false;
+        }catch (e) {
+            message.innerHTML = "Input is " + e;
+        }
+        if(document.getElementById('service_id').value=="Villa")
+        {
+            cost = 500*document.getElementById('sN_id').value*(1-document.getElementById('gGia_id').value/100)
+        }
+        else if(document.getElementById('service_id').value=="House")
+        {
+            cost = 300*document.getElementById('sN_id').value*(1-document.getElementById('gGia_id').value/100)
+        }
+        else {
+            cost = 100*document.getElementById('sN_id').value*(1-document.getElementById('gGia_id').value/100)
+        }
+
+
+
+    }
+    $(function () {
+        $("#datepicker").datepicker({
+            autoclose: true,
+            todayHighlight: true
+        }).datepicker('update', new Date());
+    });
+    function addTag(customer) {
+        var datalistTag = document.getElementById('datalist');
+        datalistTag.innerHTML += "<tr>"+"<td>"+datalist.length+"</td>"+"<td>"+customer.fullname+"</td>"+"<td>"+customer.cmnd+"</td>"+"<td>"+customer.date+"</td>"+"<td>"+customer.email+"</td>"
+            + "<td>"+customer.diachi+"</td>"+"<td>"+customer.custom+"</td>"+"<td>"+customer.giamgia+"</td>"+"<td>"+customer.sldikem+"</td>"+"<td>"+customer.snthue+"</td>"+"<td>"+customer.serVice+"</td>"+"<td>"+customer.room+"</td>"+"<td>"+cost+"</td>"+"<td><button class='btn btn-warning' onclick='edit("+(datalist.length-1)+")'>Sửa</button></td>"+"<td><button class='btn btn-danger'>Xóa</button></td>"+"</tr>";
+
+    }
+    var currIndex = -1;
+    function edit(index) {
+        currIndex = index;
+        var customer = datalist[index];
+        document.getElementById('fullname').value=customer.fullname;
+        customer.cmnd = document.getElementById('cmnd_id').value;
+        document.getElementById('diachi_id').value=customer.diachi;
+        customer.email= document.getElementById('mail_id').value;
+        customer.customer= document.getElementById('customer_id').value;
+        customer.giamgia= document.getElementById('gGia_id').value;
+        customer.serVice= document.getElementById('service_id').value;
+        customer.room= document.getElementById('room_id').value;
+        customer.date= document.getElementById('datepicker').value;
+        customer.sldikem= document.getElementById('sL_id').value;
+        customer.snthue = document.getElementById('sN_id').value;
+        document.getElementById('btn_register').innerHTML="Cập Nhật";
+
+    }
+</script>
+</body>
+</html>
